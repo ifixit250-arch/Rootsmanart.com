@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rootsman | Belizean Artist Armando 'Rootsman' Rivero</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Bodoni Moda and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Bodoni Moda"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        parchment: '#FBF9F5',
+                        sand: '#F4EFEB',
+                        charcoal: '#1A1A1A',
+                        goldaccent: '#C5A880',
+                        warmdark: '#121212',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FBF9F5;
+            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Bodoni Moda', serif;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body class="bg-parchment text-charcoal antialiased selection:bg-goldaccent selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-warmdark text-parchment text-xs py-2 px-4 text-center tracking-widest uppercase">
+        Art • Culture • Belize — Original Works from Caye Caulker
+    </div>
+
+    <!-- Main Header -->
+    <header class="sticky top-0 z-50 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex flex-col cursor-pointer" onclick="switchView('home')">
+                <span class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-warmdark">ROOTSMAN</span>
+                <span class="text-[9px] uppercase tracking-[0.3em] text-stone-500 font-medium">Belizean Artist</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium text-stone-700">
+                <button onclick="switchView('home')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-warmdark">Home</button>
+                <button onclick="switchView('artist')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">The Artist</button>
+                <button onclick="switchView('gallery')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">Gallery</button>
+                <button onclick="switchView('collections')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">Collections</button>
+                <button onclick="switchView('murals')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">Murals & Commissions</button>
+                <button onclick="switchView('visit')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">Visit</button>
+                <button onclick="switchView('contact')" class="nav-link hover:text-warmdark transition-colors pb-1 border-b-2 border-transparent">Contact</button>
+            </nav>
+
+            <!-- Search & Mobile Menu Button -->
+            <div class="flex items-center space-x-5">
+                <button onclick="openSearchModal()" class="text-stone-700 hover:text-warmdark transition-colors text-lg" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-stone-700 hover:text-warmdark text-xl" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-parchment border-b border-stone-200 px-6 py-6 space-y-4">
+            <button onclick="switchView('home'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Home</button>
+            <button onclick="switchView('artist'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">The Artist</button>
+            <button onclick="switchView('gallery'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Gallery</button>
+            <button onclick="switchView('collections'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Collections</button>
+            <button onclick="switchView('murals'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Murals & Commissions</button>
+            <button onclick="switchView('visit'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Visit</button>
+            <button onclick="switchView('contact'); toggleMobileMenu();" class="block text-left w-full text-base uppercase tracking-wider font-medium py-2">Contact</button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- HOME VIEW -->
+        <div id="view-home" class="view-section space-y-16 pb-20">
+            <!-- Hero Section -->
+            <section class="relative bg-stone-100 border-b border-stone-200">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+                    <!-- Left Hero Text -->
+                    <div class="lg:col-span-6 flex flex-col justify-center px-6 sm:px-12 py-16 lg:py-24 space-y-6">
+                        <div class="text-xs uppercase tracking-[0.25em] text-stone-500 font-semibold">
+                            Art &nbsp;•&nbsp; Culture &nbsp;•&nbsp; Belize
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-warmdark">
+                            ROOTSMAN
+                        </h1>
+                        <p class="font-serif italic text-xl sm:text-2xl text-stone-700 max-w-lg">
+                            The Art of Belize, Told Through a Lifetime of Color.
+                        </p>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-md">
+                            Vibrant people. Strong culture. One Belize. ROOTSMAN’s art documents Belizean life, heritage and rhythm through bold color, soulful figures and timeless storytelling.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="switchView('gallery')" class="inline-flex items-center space-x-3 bg-warmdark text-parchment px-8 py-4 text-xs uppercase tracking-[0.2em] font-medium hover:bg-stone-800 transition-all shadow-md group">
+                                <span>Explore the Collection</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right Hero Featured Image -->
+                    <div class="lg:col-span-6 relative bg-stone-900 overflow-hidden flex items-center justify-center">
+                        <img src="Screenshot 2026-10-05 135139.png"-alt="Fruit Vendor by Rootsman"-class="w-full h-full object-cover opacity-95 hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+                <!-- Bottom Sub-banner tags -->
+                <div class="bg-warmdark text-stone-300 py-3 px-6 text-xs uppercase tracking-widest flex flex-wrap justify-center sm:justify-start gap-6 sm:gap-16 max-w-7xl mx-auto">
+                    <span>People</span>
+                    <span>Land</span>
+                    <span>Culture</span>
+                    <span>A Brighter Tomorrow</span>
+                </div>
+            </section>
+
+            <!-- Meet The Artist Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-stone-100 p-8 sm:p-12 rounded-lg border border-stone-200 custom-shadow">
+                    <div class="lg:col-span-5 relative">
+                        <img src="Screenshot 2026-10-06 000246.png"-alt="Armando Rootsman Rivero" class="w-full h-[450px] object-cover rounded shadow-lg">
+                        <div class="absolute -bottom-4 -right-4 bg-warmdark text-parchment p-4 text-xs uppercase tracking-widest hidden sm:block">
+                            Caye Caulker, Belize
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Meet the Artist</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl text-warmdark leading-tight">A Life Painted in Belize</h2>
+                        <p class="text-stone-700 leading-relaxed">
+                            ROOTSMAN is one of Belize’s most celebrated visual artists, known for his distinctive style, vibrant color palette and deeply rooted portrayals of Belizean people, culture and everyday life. Through his art, he captures the soul of a nation — from its islands and villages to its music, spirituality and resilient people.
+                        </p>
+                        <blockquote class="border-l-2 border-goldaccent pl-6 py-2 font-serif italic text-lg sm:text-xl text-stone-800">
+                            "My art is the story of my people, my land and the rhythm that keeps us alive."
+                            <footer class="text-xs uppercase tracking-widest text-stone-500 not-italic mt-2">— ROOTSMAN</footer>
+                        </blockquote>
+                        <div class="pt-4">
+                            <button onclick="openArtistModal()" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-bold text-warmdark border-b-2 border-warmdark pb-1 hover:text-stone-600 hover:border-stone-600 transition-colors">
+                                <span>Read More About Rootsman</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Works Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-4 border-b border-stone-200">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Featured Works</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-warmdark mt-1">A Glimpse Into the World of ROOTSMAN</h2>
+                    </div>
+                    <button onclick="switchView('gallery')" class="mt-4 sm:mt-0 text-xs uppercase tracking-[0.2em] font-bold text-warmdark hover:text-stone-600 flex items-center space-x-2">
+                        <span>View Full Gallery</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Painting Grid -->
+                <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Collections Section -->
+            <section class="bg-stone-200/60 py-16 border-y border-stone-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                        <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Collections</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-warmdark">Explore the Collections</h2>
+                        <p class="font-serif italic text-stone-600">Different stories. One Belize.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <!-- Collection Card 1 -->
+                        <div onclick="filterGallery('People')" class="group cursor-pointer bg-parchment rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="People/My paintings 001.jpg"-auto=format&fit=crop&w=600&q=80" alt="People of Belize" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="font-serif text-lg font-bold text-warmdark">People of Belize</h3>
+                                    <p class="text-xs text-stone-600 mt-1">Portraits, community and everyday life.</p>
+                                </div>
+                                <div class="mt-4 flex items-center text-xs uppercase tracking-widest font-semibold text-warmdark group-hover:translate-x-1 transition-transform">
+                                    <span>Explore</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 2 -->
+                        <div onclick="filterGallery('Caye Caulker')" class="group cursor-pointer bg-parchment rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="assets/IMAG1932.jpg" alt="Caye Caulker" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="font-serif text-lg font-bold text-warmdark">Caye Caulker</h3>
+                                    <p class="text-xs text-stone-600 mt-1">Island life, sea and coastal stories.</p>
+                                </div>
+                                <div class="mt-4 flex items-center text-xs uppercase tracking-widest font-semibold text-warmdark group-hover:translate-x-1 transition-transform">
+                                    <span>Explore</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 3 -->
+                        <div onclick="filterGallery('Rastafari')" class="group cursor-pointer bg-parchment rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="assets/rastafari/Lion of Judah.jpg" alt="Roots & Rastafari" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="font-serif text-lg font-bold text-warmdark">Roots & Rastafari</h3>
+                                    <p class="text-xs text-stone-600 mt-1">Spirituality, identity and cultural pride.</p>
+                                </div>
+                                <div class="mt-4 flex items-center text-xs uppercase tracking-widest font-semibold text-warmdark group-hover:translate-x-1 transition-transform">
+                                    <span>Explore</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 4 -->
+                        <div onclick="filterGallery('Belizean Life')" class="group cursor-pointer bg-parchment rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="People/20171029_172739.jpg"-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80" alt="Belizean Life" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="font-serif text-lg font-bold text-warmdark">Belizean Life</h3>
+                                    <p class="text-xs text-stone-600 mt-1">Markets, music, food and daily rhythm.</p>
+                                </div>
+                                <div class="mt-4 flex items-center text-xs uppercase tracking-widest font-semibold text-warmdark group-hover:translate-x-1 transition-transform">
+                                    <span>Explore</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collection Card 5 -->
+                        <div onclick="switchView('murals')" class="group cursor-pointer bg-parchment rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="caye cualker/IMAG2167.jpg"-1561214115-f2f134cc4912?auto=format&fit=crop&w=600&q=80" alt="Murals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="font-serif text-lg font-bold text-warmdark">Murals</h3>
+                                    <p class="text-xs text-stone-600 mt-1">Large works that bring communities to life.</p>
+                                </div>
+                                <div class="mt-4 flex items-center text-xs uppercase tracking-widest font-semibold text-warmdark group-hover:translate-x-1 transition-transform">
+                                    <span>Explore</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Available Art / Original Art Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="bg-warmdark text-parchment rounded-lg p-8 sm:p-12 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A880_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 space-y-4">
+                            <span class="text-xs uppercase tracking-[0.3em] text-goldaccent font-semibold">Available Art</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl text-white">Original Art for Your Collection</h2>
+                            <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+                                Discover original paintings and limited works by ROOTSMAN. Bring a piece of Belize’s culture, color and history into your home, business or private collection.
+                            </p>
+                            <div class="pt-2">
+                                <button onclick="openInquiryModal('General Original Art Collection')" class="inline-flex items-center space-x-3 bg-goldaccent text-warmdark px-8 py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-200 transition-all">
+                                    <span>Inquire to Collect</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <!-- Shop Mini Card 1 -->
+                            <div onclick="openPaintingDetail(3)" class="bg-stone-900 border border-stone-800 p-3 rounded group cursor-pointer hover:border-goldaccent transition-all">
+                                <img src="others/01-16-2005 10_41_49PM.JPG"-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=400&q=80" class="w-full h-32 object-cover rounded mb-2 group-hover:opacity-90">
+                                <h4 class="font-serif text-sm font-bold text-white truncate">Three Generations</h4>
+                                <p class="text-[10px] text-stone-400">Acrylic on Canvas</p>
+                                <p class="text-xs text-goldaccent font-semibold mt-1">$2,400</p>
+                            </div>
+                            <!-- Shop Mini Card 2 -->
+                            <div onclick="openPaintingDetail(4)" class="bg-stone-900 border border-stone-800 p-3 rounded group cursor-pointer hover:border-goldaccent transition-all">
+                                <img src="People/My paintings 002.jpg"-1579783902614-a3fb3927b675?auto=format&fit=crop&w=400&q=80" class="w-full h-32 object-cover rounded mb-2 group-hover:opacity-90">
+                                <h4 class="font-serif text-sm font-bold text-white truncate">Belizean Market</h4>
+                                <p class="text-[10px] text-stone-400">Acrylic on Canvas</p>
+                                <p class="text-xs text-goldaccent font-semibold mt-1">$1,850</p>
+                            </div>
+                            <!-- Shop Mini Card 3 -->
+                            <div onclick="openPaintingDetail(2)" class="bg-stone-900 border border-stone-800 p-3 rounded group cursor-pointer hover:border-goldaccent transition-all">
+                                <img src="Screenshot 2026-10-06 002628.png"-class="w-full h-32 object-cover rounded mb-2 group-hover:opacity-90">
+                                <h4 class="font-serif text-sm font-bold text-white truncate">By the Sea</h4>
+                                <p class="text-[10px] text-stone-400">Acrylic on Canvas</p>
+                                <p class="text-xs text-goldaccent font-semibold mt-1">$3,100</p>
+                            </div>
+                            <!-- Shop Mini Card 4 -->
+                            <div onclick="openPaintingDetail(5)" class="bg-stone-900 border border-stone-800 p-3 rounded group cursor-pointer hover:border-goldaccent transition-all">
+                                <img src="Screenshot 2026-10-06 000728.png"-class="w-full h-32 object-cover rounded mb-2 group-hover:opacity-90">
+                                <h4 class="font-serif text-sm font-bold text-white truncate">Rastafari</h4>
+                                <p class="text-[10px] text-stone-400">Acrylic on Canvas</p>
+                                <p class="text-xs text-goldaccent font-semibold mt-1">$2,900</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Murals & Commissions Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-stone-100 p-8 sm:p-12 rounded-lg border border-stone-200">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Murals & Commissions</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-warmdark leading-tight">Art for Communities, Spaces and Stories</h2>
+                        <p class="text-stone-700 leading-relaxed">
+                            ROOTSMAN creates landmark murals and custom commissions for hotels, businesses, public spaces and private collectors. His work brings the spirit of Belize to life on a bold scale.
+                        </p>
+                        <blockquote class="border-l-2 border-goldaccent pl-6 py-2 font-serif italic text-lg text-stone-800">
+                            "Murals bring the people's spirit into public spaces — where art belongs."
+                            <footer class="text-xs uppercase tracking-widest text-stone-500 not-italic mt-2">— ROOTSMAN</footer>
+                        </blockquote>
+                        <div class="pt-2">
+                            <button onclick="openCommissionModal()" class="inline-flex items-center space-x-3 bg-warmdark text-parchment px-8 py-4 text-xs uppercase tracking-[0.2em] font-medium hover:bg-stone-800 transition-all">
+                                <span>Discuss a Commission</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <img src="Screenshot 2026-10-05 235953.png"-alt="Belize Community Mural" class="w-full h-[380px] object-cover rounded shadow-md">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visit Rootsman Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm">
+                    <div class="lg:col-span-8 p-8 sm:p-12 flex flex-col justify-between space-y-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Visit Rootsman</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl text-warmdark mt-1">Art. Culture. Island Vibes.</h2>
+                            <p class="text-stone-700 mt-3 text-sm sm:text-base leading-relaxed">
+                                Visit ROOTSMAN's gallery in Caye Caulker, Belize, and experience his art in person. Meet the artist, view original works, and take home a piece of Belize.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-stone-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-goldaccent text-xl mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Location</h4>
+                                    <p class="text-xs text-stone-600 mt-1">Caye Caulker, Belize</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-goldaccent text-xl mt-1"><i class="fa-regular fa-clock"></i></div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Gallery Hours</h4>
+                                    <p class="text-xs text-stone-600 mt-1">Mon – Sat<br>10:00 AM – 5:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-goldaccent text-xl mt-1"><i class="fa-regular fa-envelope"></i></div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Get in Touch</h4>
+                                    <p class="text-xs text-stone-600 mt-1">rootsmanbelize@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button onclick="switchView('visit')" class="inline-flex items-center space-x-3 bg-warmdark text-parchment px-8 py-4 text-xs uppercase tracking-[0.2em] font-medium hover:bg-stone-800 transition-all">
+                                <span>Plan Your Visit</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 bg-stone-900 relative min-h-[300px]">
+                        <img src="caye-reef-cayecaulker-belize.webp"-alt="Caye Caulker Gallery" class="w-full h-full object-cover opacity-85">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-white font-serif text-lg">The Caye Caulker Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- THE ARTIST VIEW -->
+        <div id="view-artist" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Biography & Heritage</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Armando 'Rootsman' Rivero</h1>
+                <p class="font-serif italic text-xl text-stone-600">The Journey of a Belizean Master of Color and Canvas</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <img src="ChatGPT Image Oct 5, 2026, 10_34_07 PM.png"-format&fit=crop&w=800&q=80" alt="Rootsman Portrait" class="w-full rounded-lg shadow-xl border border-stone-200">
+                </div>
+                <div class="lg:col-span-7 space-y-6 text-stone-700 leading-relaxed">
+                    <h3 class="font-serif text-2xl text-warmdark">Living the Art of the Caribbean</h3>
+                    <p>
+                        Armando "Rootsman" Rivero is an iconic figure in Belizean contemporary art. Residing on the North side of Caye Caulker, Rootsman embodies the tranquil yet vibrant spirit of island life. He travels between the North and South on his handmade catamaran with his wife, living a simple life with as few material possessions as possible, allowing total dedication to his craft and spiritual connection with the environment.
+                    </p>
+                    <p>
+                        Rivero moved to Caye Caulker at fifteen, and within a year he was already oil painting, driven by the intense beauty he saw around him. When landmark local signs began to fade, Rootsman stepped in to give them new life, turning public infrastructure into living galleries of marine and cultural wonder.
+                    </p>
+                    <blockquote class="border-l-2 border-goldaccent pl-6 py-3 font-serif italic text-lg text-stone-900">
+                        "They just gave me an idea and I take it from there. So they wanted the underwater team... But then I figured I could combine the whole thing with animals, sharks, and fish."
+                        <footer class="text-xs uppercase tracking-widest text-stone-500 not-italic mt-2">— Armando 'Rootsman' Rivero</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Artist Philosophy Section -->
+            <div class="bg-stone-100 p-8 sm:p-12 rounded-lg border border-stone-200 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="space-y-3">
+                    <div class="text-3xl text-goldaccent"><i class="fa-solid fa-palette"></i></div>
+                    <h4 class="font-serif text-xl font-bold text-warmdark">Vibrant Palette</h4>
+                    <p class="text-sm text-stone-600">Uncompromising use of bold primary colors reflecting the Caribbean sun, sea, and flora.</p>
+                </div>
+                <div class="space-y-3">
+                    <div class="text-3xl text-goldaccent"><i class="fa-solid fa-anchor"></i></div>
+                    <h4 class="font-serif text-xl font-bold text-warmdark">Island Roots</h4>
+                    <p class="text-sm text-stone-600">Deeply rooted in Caye Caulker traditions, catamaran sailing, and coastal community bonds.</p>
+                </div>
+                <div class="space-y-3">
+                    <div class="text-3xl text-goldaccent"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <h4 class="font-serif text-xl font-bold text-warmdark">Cultural Legacy</h4>
+                    <p class="text-sm text-stone-600">Documenting generations of Belizean families, musicians, and everyday heroes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY VIEW -->
+        <div id="view-gallery" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">The Complete Collection</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Rooted Masterpieces</h1>
+                <p class="font-serif italic text-xl text-stone-600">Click any artwork to inspect layers, color palette, and backstory.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 pb-4">
+                <button onclick="filterGallery('All')" id="filter-All" class="filter-btn active-filter px-5 py-2 text-xs uppercase tracking-widest font-medium bg-warmdark text-parchment rounded transition-all">All Works</button>
+                <button onclick="filterGallery('People')" id="filter-People" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-medium bg-stone-200 text-stone-700 hover:bg-stone-300 rounded transition-all">People</button>
+                <button onclick="filterGallery('Caye Caulker')" id="filter-Caye Caulker" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-medium bg-stone-200 text-stone-700 hover:bg-stone-300 rounded transition-all">Caye Caulker</button>
+                <button onclick="filterGallery('Rastafari')" id="filter-Rastafari" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-medium bg-stone-200 text-stone-700 hover:bg-stone-300 rounded transition-all">Rastafari</button>
+                <button onclick="filterGallery('Belizean Life')" id="filter-Belizean Life" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-medium bg-stone-200 text-stone-700 hover:bg-stone-300 rounded transition-all">Belizean Life</button>
+            </div>
+
+            <!-- Full Gallery Grid -->
+            <div id="full-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+
+        <!-- COLLECTIONS VIEW -->
+        <div id="view-collections" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Thematic Series</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Curated Collections</h1>
+                <p class="font-serif italic text-xl text-stone-600">Different stories. One Belize.</p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Collection Item 1 -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-100 p-8 rounded-lg border border-stone-200">
+                    <div class="lg:col-span-6">
+                        <img src="others/moo 009.JPG"-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="People of Belize" class="w-full h-80 object-cover rounded shadow">
+                    </div>
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-goldaccent font-bold">Series I</span>
+                        <h2 class="font-serif text-3xl text-warmdark">People of Belize</h2>
+                        <p class="text-stone-700 leading-relaxed">
+                            Portraits, community members, and everyday heroes of Belize. Rooted in deep empathy and rich earthen tones, these canvases honor the faces that shape the nation's character.
+                        </p>
+                        <button onclick="filterGallery('People'); switchView('gallery');" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-bold text-warmdark hover:text-stone-600">
+                            <span>View People Collection</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Collection Item 2 -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-100 p-8 rounded-lg border border-stone-200">
+                    <div class="lg:col-span-6 lg:order-2">
+                        <img src="assets/20151023_105529.jpg" alt="Caye Caulker" class="w-full h-80 object-cover rounded shadow">
+                    </div>
+                    <div class="lg:col-span-6 lg:order-1 space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-goldaccent font-bold">Series II</span>
+                        <h2 class="font-serif text-3xl text-warmdark">Caye Caulker & Coastal Life</h2>
+                        <p class="text-stone-700 leading-relaxed">
+                            A tribute to island living, wooden cayes, turquoise waters, and catamaran journeys. Capturing the unhurried pace and natural splendor of the Caribbean coast.
+                        </p>
+                        <button onclick="filterGallery('Caye Caulker'); switchView('gallery');" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-bold text-warmdark hover:text-stone-600">
+                            <span>View Caye Caulker Collection</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Collection Item 3 -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-100 p-8 rounded-lg border border-stone-200">
+                    <div class="lg:col-span-6">
+                        <img src="assets/rastafari/Rasta Portrait.jpg" alt="Roots & Rastafari" class="w-full h-80 object-cover rounded shadow">
+                    </div>
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-goldaccent font-bold">Series III</span>
+                        <h2 class="font-serif text-3xl text-warmdark">Roots & Rastafari</h2>
+                        <p class="text-stone-700 leading-relaxed">
+                            Spirituality, identity, and cultural pride. Portraits imbued with meditative tranquility, dreadlocks, and the powerful red, gold, and green vibration of liberation.
+                        </p>
+                        <button onclick="filterGallery('Rastafari'); switchView('gallery');" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-bold text-warmdark hover:text-stone-600">
+                            <span>View Rastafari Collection</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MURALS & COMMISSIONS VIEW -->
+        <div id="view-murals" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Public Works & Custom Art</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Murals & Commissions</h1>
+                <p class="font-serif italic text-xl text-stone-600">Bringing the community's spirit into public spaces.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <img src="Caye Caulker Island Mural Scene.png"-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=80" alt="Caye Caulker Mural Sign" class="w-full rounded-lg shadow-lg border border-stone-200">
+                </div>
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="font-serif text-3xl text-warmdark">The Island Sign Masterpieces</h3>
+                    <p class="text-stone-700 leading-relaxed">
+                        ROOTSMAN has transformed Caye Caulker's iconic welcome sign and local dive shop facades into monumental outdoor galleries. Featuring cascading sharks, rays, turtles, and cultural musicians, these murals celebrate Belize's rich marine and human heritage.
+                    </p>
+                    <div class="p-6 bg-stone-100 border-l-4 border-goldaccent space-y-2">
+                        <h4 class="font-serif font-bold text-warmdark">Commission Your Space</h4>
+                        <p class="text-xs text-stone-600 leading-relaxed">Available for hotel lobbies, public murals, restaurant features, and private residential commissions across Belize and internationally.</p>
+                    </div>
+                    <button onclick="openCommissionModal()" class="w-full bg-warmdark text-parchment py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-800 transition-all text-center">
+                        Request a Custom Commission
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISIT VIEW -->
+        <div id="view-visit" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Plan Your Experience</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Visit Caye Caulker</h1>
+                <p class="font-serif italic text-xl text-stone-600">"Go Slow" — Experience art where the Caribbean breeze meets the canvas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 bg-stone-100 p-8 sm:p-12 rounded-lg border border-stone-200">
+                    <h3 class="font-serif text-2xl text-warmdark">Studio & Gallery Details</h3>
+                    <ul class="space-y-4 text-stone-700 text-sm">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-goldaccent mt-1 text-lg"></i>
+                            <div><strong class="text-warmdark uppercase text-xs tracking-wider block">Address</strong>North Side, Caye Caulker, Belize District, Belize</div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-regular fa-clock text-goldaccent mt-1 text-lg"></i>
+                            <div><strong class="text-warmdark uppercase text-xs tracking-wider block">Hours</strong>Monday through Saturday: 10:00 AM – 5:00 PM<br>Sunday: By Private Appointment</div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-sailboat text-goldaccent mt-1 text-lg"></i>
+                            <div><strong class="text-warmdark uppercase text-xs tracking-wider block">Getting Here</strong>Take the water taxi or water plane from Belize City to Caye Caulker. Head to the North side by boat or catamaran.</div>
+                        </li>
+                    </ul>
+                    <div class="pt-4">
+                        <button onclick="openInquiryModal('Studio Visit Appointment')" class="bg-warmdark text-parchment px-8 py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-800 transition-all">
+                            Book Studio Appointment
+                        </button>
+                    </div>
+                </div>
+                <div class="relative h-[450px] bg-stone-900 rounded-lg overflow-hidden shadow-lg">
+                    <img src="Island Artist with Dogs by the Shack.png"-auto=format&fit-crop&w-2000&q-10000 alt="Caye Caulker Coast" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+                        <h4 class="font-serif text-2xl">Caye Caulker, Belize</h4>
+                        <p class="text-xs text-stone-300 mt-1">Home of Armando 'Rootsman' Rivero Studio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT VIEW -->
+        <div id="view-contact" class="view-section hidden max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+            <div class="text-center space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Get in Touch</span>
+                <h1 class="font-serif text-4xl sm:text-6xl text-warmdark">Contact Rootsman</h1>
+                <p class="font-serif italic text-xl text-stone-600">Inquiries regarding original paintings, print availability, or studio visits.</p>
+            </div>
+
+            <div class="bg-stone-100 p-8 sm:p-12 rounded-lg border border-stone-200">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-2">Your Name</label>
+                            <input type="text" required class="w-full bg-parchment border border-stone-300 p-3 rounded text-sm focus:outline-none focus:border-warmdark">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-parchment border border-stone-300 p-3 rounded text-sm focus:outline-none focus:border-warmdark">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-2">Subject / Inquiry Type</label>
+                        <select class="w-full bg-parchment border border-stone-300 p-3 rounded text-sm focus:outline-none focus:border-warmdark">
+                            <option>Original Painting Inquiry</option>
+                            <option>Custom Mural / Commission</option>
+                            <option>Studio Visit Appointment</option>
+                            <option>General Greeting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-2">Message</label>
+                        <textarea rows="5" required class="w-full bg-parchment border border-stone-300 p-3 rounded text-sm focus:outline-none focus:border-warmdark"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-warmdark text-parchment py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-800 transition-all">
+                        Send Message to Rootsman Studio
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-warmdark text-stone-400 pt-16 pb-12 border-t border-stone-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Footer Col 1 -->
+            <div class="space-y-4">
+                <span class="font-serif text-2xl font-bold tracking-wider text-white">ROOTSMAN</span>
+                <p class="text-xs text-stone-400 leading-relaxed">
+                    The Art of Belize, Told Through a Lifetime of Color. Original works and murals from Caye Caulker, Belize.
+                </p>
+            </div>
+            <!-- Footer Col 2 -->
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-white">Navigation</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><button onclick="switchView('home')" class="hover:text-white transition-colors">Home</button></li>
+                    <li><button onclick="switchView('artist')" class="hover:text-white transition-colors">The Artist</button></li>
+                    <li><button onclick="switchView('gallery')" class="hover:text-white transition-colors">Gallery</button></li>
+                    <li><button onclick="switchView('collections')" class="hover:text-white transition-colors">Collections</button></li>
+                </ul>
+            </div>
+            <!-- Footer Col 3 -->
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-white">Information</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><button onclick="switchView('murals')" class="hover:text-white transition-colors">Murals & Commissions</button></li>
+                    <li><button onclick="switchView('visit')" class="hover:text-white transition-colors">Visit Studio</button></li>
+                    <li><button onclick="switchView('contact')" class="hover:text-white transition-colors">Contact</button></li>
+                </ul>
+            </div>
+            <!-- Footer Col 4: Social Accounts -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-white">Connect with Rootsman</h4>
+                <div class="flex space-x-4 text-lg">
+                    <a href="https://www.instagram.com/rootsmanbelize" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-goldaccent hover:text-warmdark transition-all text-white" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/rootsmanbelize" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-goldaccent hover:text-warmdark transition-all text-white" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@rootsmanbelize" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-goldaccent hover:text-warmdark transition-all text-white" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+                <p class="text-[11px] text-stone-500">Follow official channels for daily studio updates and catamaran journeys.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+            <div>
+                <span>© 2026 ROOTSMAN. All rights reserved.</span>
+            </div>
+            <div class="mt-4 sm:mt-0 flex space-x-6 uppercase tracking-widest text-[10px]">
+                <span>Art</span>
+                <span>•</span>
+                <span>Culture</span>
+                <span>•</span>
+                <span>People</span>
+                <span>•</span>
+                <span>Belize</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PAINTING DETAIL / MULTI-LAYER INTERACTION MODAL -->
+    <div id="painting-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-parchment max-w-4xl w-full rounded-lg overflow-hidden shadow-2xl relative my-8 border border-stone-300">
+            <button onclick="closePaintingDetail()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-warmdark text-parchment flex items-center justify-center hover:bg-stone-800 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="painting-modal-content" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Dynamically filled -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTIST BIO MODAL -->
+    <div id="artist-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-parchment max-w-2xl w-full rounded-lg p-8 sm:p-12 relative shadow-2xl border border-stone-300 space-y-6">
+            <button onclick="closeArtistModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-warmdark text-parchment flex items-center justify-center hover:bg-stone-800 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Artist Statement</span>
+            <h2 class="font-serif text-3xl text-warmdark">Armando 'Rootsman' Rivero</h2>
+            <p class="text-stone-700 text-sm leading-relaxed">
+                "Living on Caye Caulker gives you a distinct perspective on time and color. When you sail the waters between North and South, you witness hues of turquoise, amber, and gold that you cannot find anywhere else in the world. My canvas is my journal of these waters, these rhythms, and my people."
+            </p>
+            <blockquote class="border-l-2 border-goldaccent pl-4 py-2 font-serif italic text-stone-800">
+                "The original sign on the island was painted by another well-known local artist, but when it started to fade, Rivero stepped in to give it new life."
+            </blockquote>
+            <div class="pt-4 flex justify-end">
+                <button onclick="closeArtistModal(); switchView('artist');" class="bg-warmdark text-parchment px-6 py-3 text-xs uppercase tracking-widest font-bold">
+                    Read Full Biography
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INQUIRY & COMMISSION MODAL -->
+    <div id="inquiry-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-parchment max-w-lg w-full rounded-lg p-8 relative shadow-2xl border border-stone-300 space-y-6">
+            <button onclick="closeInquiryModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-warmdark text-parchment flex items-center justify-center hover:bg-stone-800 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="space-y-2">
+                <span id="inquiry-modal-subtitle" class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Inquire to Collect</span>
+                <h2 id="inquiry-modal-title" class="font-serif text-2xl sm:text-3xl text-warmdark">Acquire Original Work</h2>
+            </div>
+            <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-1">Your Name</label>
+                    <input type="text" required class="w-full bg-white border border-stone-300 p-3 rounded text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-1">Email Address</label>
+                    <input type="email" required class="w-full bg-white border border-stone-300 p-3 rounded text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-1">Phone / WhatsApp</label>
+                    <input type="text" class="w-full bg-white border border-stone-300 p-3 rounded text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-warmdark mb-1">Inquiry Details / Notes</label>
+                    <textarea rows="4" required class="w-full bg-white border border-stone-300 p-3 rounded text-sm" placeholder="Please mention preferred size or specific artwork..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-warmdark text-parchment py-3 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-800 transition-all">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-start justify-center pt-20 p-4">
+        <div class="bg-parchment max-w-2xl w-full rounded-lg p-6 relative shadow-2xl border border-stone-300 space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-stone-200">
+                <h3 class="font-serif text-xl font-bold text-warmdark">Search Rootman Art</h3>
+                <button onclick="closeSearchModal()" class="text-stone-700 hover:text-warmdark text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="relative">
+                <input type="text" id="search-input" oninput="performSearch(this.value)" placeholder="Search paintings, collections, murals, Caye Caulker..." class="w-full bg-white border border-stone-300 p-4 pl-12 rounded text-sm focus:outline-none focus:border-warmdark">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-4.5 text-stone-400 text-lg"></i>
+            </div>
+            <div id="search-results" class="space-y-2 max-h-80 overflow-y-auto">
+                <p class="text-xs text-stone-500 italic py-2">Start typing to search across all gallery works and articles...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-warmdark text-parchment px-6 py-4 rounded shadow-2xl transform translate-y-32 opacity-0 transition-all duration-300 flex items-center space-x-3 border border-goldaccent/30">
+        <i class="fa-solid fa-circle-check text-goldaccent text-lg"></i>
+        <span id="toast-message" class="text-xs uppercase tracking-widest font-semibold">Message sent successfully</span>
+    </div>
+
+    <script>
+        // Database of Rootman Artworks with multi-layer / color breakdown
+        const artworks = [
+            {
+                id: 1,
+                title: "Island Woman",
+                collection: "People",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 36\"",
+                price: "$2,200",
+                "image": "People My paintings 014jpg ?auto=format&fit=crop&w=800&q=80",
+                description: "A striking portrait capturing the regal dignity and vibrant spirit of an island woman adorned with headwraps and floral motifs.",
+                backstory: "Inspired by the matriarchs of Caye Caulker who anchor the island's culture with quiet strength and radiant grace.",
+                palette: ["#1A365D", "#D69E2E", "#C53030", "#2F855A", "#DD6B20"],
+                layers: ["Base Earth Ebonies", "Mid-tone Ochres & Reds", "Tropical Flora Accents", "Highlight Luminosity"]
+            },
+            {
+                id: 2,
+                title: "Caye Caulker",
+                collection: "Caye Caulker",
+                medium: "Acrylic on Canvas",
+                dimensions: "20\" × 24\"",
+                price: "$1,950",
+                image: "assets/20151023_214439.jpg",
+                description: "Stilt houses over turquoise Caribbean waters under a brilliant sun and passing sail.",
+                backstory: "Depicts the classic North side shores where Rootsman sails his catamaran and paints the coastal light.",
+                palette: ["#319795", "#ED8936", "#2B6CB0", "#FEFCBF", "#2C5282"],
+                layers: ["Cyan Sea Base", "Stilt House Timber Foundation", "Sky & Cloud Vapors", "Sunlit Reflection Layer"]
+            },
+            {
+                id: 3,
+                title: "The Rhythm Lives",
+                collection: "Belizean Life",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 30\"",
+                price: "$2,500",
+                image: "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=800&q=80",
+                description: "Garifuna drummers and community musicians locked in rhythmic harmony.",
+                backstory: "A celebration of drumming, percussion, and ancestral beats that echo across Belizean shores.",
+                palette: ["#9B2C2C", "#DD6B20", "#D69E2E", "#1A202C", "#38A169"],
+                layers: ["Deep Mahogany Base", "Drum & Skin Texture", "Traditional Garb Colors", "Vibrational Sound Aura"]
+            },
+            {
+                id: 4,
+                title: "Fruit Vendor",
+                collection: "Belizean Life",
+                medium: "Acrylic on Canvas",
+                dimensions: "30\" × 40\"",
+                price: "$3,400",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80",
+                description: "A vibrant market scene brimming with tropical papayas, bananas, and the warm smiles of local vendors.",
+                backstory: "Portrays the bustling energy of open-air Belizean markets where community and commerce intertwine.",
+                palette: ["#D69E2E", "#38A169", "#E53E3E", "#DD6B20", "#2D3748"],
+                layers: ["Earthen Market Floor", "Tropical Produce Hues", "Vendor Portraiture", "Sunlight Canopy"]
+            },
+            {
+                id: 5,
+                title: "Belizean Village",
+                collection: "Caye Caulker",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 36\"",
+                price: "$2,700",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+                description: "Colorful wooden homes nestled amongst coconut palms and lush tropical foliage.",
+                backstory: "Captured during the golden hour in a peaceful Caye Caulker neighborhood.",
+                palette: ["#ED8936", "#38A169", "#3182CE", "#ECC94B", "#2D3748"],
+                layers: ["Foliage Green Foundation", "Wooden Architecture", "Roof & Trim Accents", "Golden Hour Glow"]
+            },
+            {
+                id: 6,
+                title: "Mother and Child",
+                collection: "People",
+                medium: "Acrylic on Canvas",
+                dimensions: "20\" × 24\"",
+                price: "$2,100",
+                image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+                description: "An intimate and tender portrayal of maternal love framed by rich island colors.",
+                backstory: "A timeless meditation on generational bonds, safety, and unconditional love.",
+                palette: ["#744210", "#D69E2E", "#9B2C2C", "#2F855A", "#1A202C"],
+                layers: ["Warm Umber Base", "Facial Contour & Expressions", "Garment Wraps", "Tender Glow Highlights"]
+            },
+            {
+                id: 7,
+                title: "Roots & Rastafari",
+                collection: "Rastafari",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 36\"",
+                price: "$2,900",
+                image: "assets/rastafari/Rasta Portrait.jpg",
+                description: "A meditative portrait embodying spiritual consciousness, dreadlocks, and red, gold, and green vibration.",
+                backstory: "Reflects Rootsman's personal philosophy of peace, self-reliance, and connection to the earth.",
+                palette: ["#276749", "#D69E2E", "#9B2C2C", "#1A202C", "#D6BCFA"],
+                layers: ["Charcoal Silhouette", "Red Gold & Green Vibrations", "Dreadlock Texture Detail", "Spiritual Aura Glow"]
+            },
+            {
+                id: 8,
+                title: "Three Generations",
+                collection: "People",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 30\"",
+                price: "$2,400",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+                description: "Family heritage preserved across elders and youth in a harmonious island grouping.",
+                backstory: "Honoring the lineage of wisdom and storytelling passed down through Belizean families.",
+                palette: ["#7B341E", "#D69E2E", "#2B6CB0", "#38A169", "#1A202C"],
+                layers: ["Deep Terracotta Base", "Elder & Youth Figures", "Clothing & Beads", "Warm Unified Light"]
+            },
+            {
+                id: 9,
+                title: "Belizean Market",
+                collection: "Belizean Life",
+                medium: "Acrylic on Canvas",
+                dimensions: "24\" × 30\"",
+                price: "$1,850",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80",
+                description: "Lively interaction and produce trading under the Belizean sun.",
+                backstory: "Celebrating community connection and everyday commerce in coastal villages.",
+                palette: ["#C53030", "#DD6B20", "#319795", "#D69E2E", "#2D3748"],
+                layers: ["Ground Layer", "Produce Stalls", "Figures", "Sunlight Glare"]
+            }
+
+            ,{
+                id: 10, title: "Island Sailboat at Sunset", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/20151023_105529.jpg",
+                description: "A sailboat rests by the sandy shore beside traditional island homes and palms.", backstory: "An older coastal scene signed Armando Rivero, capturing a quieter era of Caye Caulker.", palette: ["#D66C45", "#4D91B7", "#C6D8D9", "#52634B"], layers: ["Warm Sunset Sky", "Sailboat and Shoreline", "Island Houses", "Palm Silhouettes"]
+            },{
+                id: 11, title: "The Village Lane", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/20151023_214439.jpg",
+                description: "A bright sandy lane passes wooden island buildings, gardens, and palms.", backstory: "A colorful view of everyday life along a village path on the island.", palette: ["#18B9E2", "#45B83B", "#E8D89B", "#2253A4"], layers: ["Caribbean Sky", "Wooden Buildings", "Green Garden", "Sandy Lane"]
+            },{
+                id: 12, title: "Monkey and Sea Grapes", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/20171004_142104.jpg",
+                description: "A monkey reaches for purple sea grapes above the sandy Caribbean beach.", backstory: "A playful island wildlife scene with bold tropical color and familiar coastal details.", palette: ["#2445B7", "#48B84C", "#6D3A80", "#28A9D9"], layers: ["Deep Blue Sky", "Sea Grape Branch", "Monkey Figure", "Beach and Sea"]
+            },{
+                id: 13, title: "Sailboats on the Reef", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/20171026_104356.jpg",
+                description: "Two sailboats drift across layered turquoise and blue Caribbean water beneath white clouds.", backstory: "A calm seascape inspired by sailing and the open waters around the cayes.", palette: ["#168DD1", "#2357B8", "#2DAE9C", "#F2F1E6"], layers: ["Clouded Horizon", "Distant Sailboats", "Blue Reef Water", "Foreground Waves"]
+            },{
+                id: 14, title: "Flying Fish", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/20171102_133901.jpg",
+                description: "A flying fish rises from clear water in a long vertical composition.", backstory: "A marine-life painting celebrating the movement and color of Belizean waters.", palette: ["#154C9C", "#36B8D4", "#B7DDEB", "#7B70B8"], layers: ["Ocean Blue Background", "Fish Form", "Scale and Fin Detail", "Water Reflections"]
+            },{
+                id: 15, title: "Mangrove Pier", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/IMAG1932.jpg",
+                description: "A wooden pier stretches into luminous turquoise water beside a mangrove tree.", backstory: "An island waterscape that brings together mangrove roots, boats, and the wide Caribbean sky.", palette: ["#1AA8C0", "#48D4D5", "#2D6C53", "#F4F0E9"], layers: ["Cloud and Sky", "Mangrove Canopy", "Wooden Pier", "Shallow Water"]
+            },{
+                id: 16, title: "Lionfish", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/IMAG2167.jpg",
+                description: "A vividly striped red-and-gold lionfish spreads its dramatic fins against a deep blue background.", backstory: "A bold marine subject inspired by the striking life found beneath Belize's Caribbean waters.", palette: ["#174EBD", "#F6D437", "#D83B2D", "#F7E7A6"], layers: ["Blue Water Field", "Lionfish Body", "Striped Fins", "Fine Detail Accents"]
+            },{
+                id: 17, title: "Caye Caulker Village", collection: "Caye Caulker", medium: "Painting on Canvas", dimensions: "Original artwork", price: "Price on request", image: "assets/My paintings 008.jpg",
+                description: "Traditional wooden homes, palms, and a village path glow in warm tropical colors.", backstory: "A village streetscape celebrating the character of Caye Caulker's wooden architecture.", palette: ["#E6B936", "#4B6C2D", "#D66D35", "#E8D6A1"], layers: ["Golden Evening Light", "Wooden Houses", "Village Path", "Tropical Foliage"]
+            }
+
+            ,{
+                id: 18, title: "Early Rasta Scene", collection: "Rastafari", medium: "Painting", dimensions: "Original artwork", price: "Price on request",
+                image: "assets/rastafari/Early Rasta Scene.jpg",
+                description: "A symbolic scene with figures, architectural details, and an all-seeing eye.",
+                backstory: "An expressive figurative work included in the Rastafari collection.",
+                palette: ["#2F5269", "#D4B45E", "#386A58", "#A75D40"], layers: ["Stone and Architecture", "Central Figures", "Blue and Earth Tones", "Symbolic Details"]
+            },{
+                id: 19, title: "Lion of Judah", collection: "Rastafari", medium: "Mural painting", dimensions: "Wall mural", price: "Price on request",
+                image: "assets/rastafari/Lion of Judah.jpg",
+                description: "A bold lion portrait framed by flowing locks in fiery red, gold, and orange.",
+                backstory: "A powerful lion image associated with strength, identity, and Rastafari visual symbolism.",
+                palette: ["#F05B28", "#F8A13A", "#E5D7C9", "#181818"], layers: ["Dark Wall Ground", "Lion's Face", "Flame-Coloured Locks", "White Muzzle Details"]
+            },{
+                id: 20, title: "Red Robed Figure", collection: "Rastafari", medium: "Painting", dimensions: "Original artwork", price: "Price on request",
+                image: "assets/rastafari/Red Robed Figure.jpg",
+                description: "A solemn bearded figure wearing a flowing red robe and a golden head covering.",
+                backstory: "A portrait using warm reds and golds to create a strong spiritual presence.",
+                palette: ["#8E201D", "#C76C37", "#D8A34C", "#202020"], layers: ["Golden Background", "Head and Beard", "Red Robe", "Dark Contour Lines"]
+            },{
+                id: 21, title: "Dreadlocks in Colour", collection: "Rastafari", medium: "Painting", dimensions: "Original artwork", price: "Price on request",
+                image: "assets/rastafari/Dreadlocks in Colour.jpg",
+                description: "A close-up portrait composed of sweeping dreadlocks and vivid blue, green, yellow, and red shapes.",
+                backstory: "An expressive, abstracted portrait celebrating hair, colour, and identity.",
+                palette: ["#204DAB", "#2BA5A0", "#D5D83B", "#B52B45"], layers: ["Blue Background", "Dreadlock Forms", "Face and Hands", "Bright Colour Accents"]
+            },{
+                id: 22, title: "Faces of Many Colours", collection: "Rastafari", medium: "Painting", dimensions: "Original artwork", price: "Price on request",
+                image: "assets/rastafari/Faces of Many Colours.jpg",
+                description: "Overlapping faces in blue, green, red, yellow, and purple form a vivid group portrait.",
+                backstory: "A colourful study of faces and shared humanity.",
+                palette: ["#2456B4", "#239C8E", "#E4C52C", "#9E2E6E"], layers: ["Blue Faces", "Central Colour Fields", "Overlapping Profiles", "Expressive Linework"]
+            },{
+                id: 23, title: "Drummer by the Caribbean", collection: "Rastafari", medium: "Painting", dimensions: "Original artwork", price: "Price on request",
+                image: "assets/rastafari/Drummer by the Caribbean.jpg",
+                description: "A dreadlocked musician sits beside hand drums with the blue Caribbean sea behind him.",
+                backstory: "A portrait connecting music, island life, and Rastafari identity.",
+                palette: ["#185CB0", "#168EAE", "#D7C22C", "#8A2A27"], layers: ["Island Sea and Sky", "Portrait and Dreadlocks", "Red Gold and Green Clothing", "Drums and Hands"]
+            }
+
+        ];
+
+        // Switch Views Functionality
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('view-' + viewId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Desktop Nav Active States
+            document.querySelectorAll('header nav button').forEach(btn => {
+                btn.classList.remove('border-warmdark', 'font-bold');
+                btn.classList.add('border-transparent');
+                if (btn.textContent.toLowerCase().includes(viewId)) {
+                    btn.classList.add('border-warmdark', 'font-bold');
+                }
+            });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Featured & Gallery Grids
+        function renderGrids() {
+            // Featured Grid (First 6 works)
+            const featuredContainer = document.getElementById('featured-grid');
+            if (featuredContainer) {
+                featuredContainer.innerHTML = artworks.slice(0, 6).map(art => `
+                    <div onclick="openPaintingDetail(${art.id})" class="group cursor-pointer bg-white rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="bg-warmdark text-parchment text-[10px] uppercase tracking-widest px-4 py-2 font-semibold">Inspect Artwork</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-stone-500">${art.collection}</span>
+                                <h3 class="font-serif text-xl font-bold text-warmdark mt-1">${art.title}</h3>
+                                <p class="text-xs text-stone-600 mt-1">${art.medium} • ${art.dimensions}</p>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-100">
+                                <span class="font-serif text-sm font-semibold text-warmdark">${art.price}</span>
+                                <span class="text-xs uppercase tracking-wider font-bold text-warmdark flex items-center group-hover:translate-x-1 transition-transform">
+                                    <span>Details</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Full Gallery Grid
+            renderFullGallery(artworks);
+        }
+
+        function renderFullGallery(items) {
+            const grid = document.getElementById('full-gallery-grid');
+            if (!grid) return;
+            
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-16 text-center text-stone-500 italic">No artworks found matching this collection.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(art => `
+                <div onclick="openPaintingDetail(${art.id})" class="group cursor-pointer bg-white rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-warmdark text-parchment text-[10px] uppercase tracking-widest px-4 py-2 font-semibold">Inspect Layers & Details</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-stone-500">${art.collection}</span>
+                            <h3 class="font-serif text-xl font-bold text-warmdark mt-1">${art.title}</h3>
+                            <p class="text-xs text-stone-600 mt-1">${art.medium} • ${art.dimensions}</p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-100">
+                            <span class="font-serif text-sm font-semibold text-warmdark">${art.price}</span>
+                            <span class="text-xs uppercase tracking-wider font-bold text-warmdark flex items-center group-hover:translate-x-1 transition-transform">
+                                <span>Inspect</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Gallery
+        function filterGallery(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-warmdark', 'text-parchment');
+                btn.classList.add('bg-stone-200', 'text-stone-700');
+            });
+            const activeBtn = document.getElementById('filter-' + category);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-stone-200', 'text-stone-700');
+                activeBtn.classList.add('bg-warmdark', 'text-parchment');
+            }
+
+            if (category === 'All') {
+                renderFullGallery(artworks);
+            } else {
+                const filtered = artworks.filter(art => art.collection === category);
+                renderFullGallery(filtered);
+            }
+            switchView('gallery');
+        }
+
+        // Painting Detail Modal with Multi-Layer breakdown
+        function openPaintingDetail(id) {
+            const art = artworks.find(a => a.id === id);
+            if (!art) return;
+
+            const modalContent = document.getElementById('painting-modal-content');
+            modalContent.innerHTML = `
+                <div class="bg-stone-900 relative min-h-[350px] md:min-h-[500px]">
+                    <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md p-3 rounded text-white text-xs flex justify-between items-center">
+                        <span>Medium: ${art.medium}</span>
+                        <span>Size: ${art.dimensions}</span>
+                    </div>
+                </div>
+                <div class="p-8 sm:p-10 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">${art.collection} Collection</span>
+                        <h2 class="font-serif text-3xl font-bold text-warmdark">${art.title}</h2>
+                        <p class="font-serif italic text-stone-700 text-lg">${art.price}</p>
+                        <p class="text-stone-600 text-sm leading-relaxed">${art.description}</p>
+                        <div class="bg-stone-100 p-4 rounded border-l-2 border-goldaccent space-y-1">
+                            <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Backstory</h4>
+                            <p class="text-xs text-stone-600 italic">"${art.backstory}"</p>
+                        </div>
+                        <!-- Multi-Layer Independent Interaction -->
+                        <div class="space-y-2 pt-2">
+                            <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Independent Layer Breakdown</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${art.layers.map((layer, idx) => `
+                                    <div onclick="toggleLayer(${idx})" id="layer-box-${idx}" class="p-2 rounded bg-stone-100 border border-stone-200 text-xs cursor-pointer hover:border-goldaccent transition-all flex items-center space-x-2">
+                                        <span class="w-3 h-3 rounded-full inline-block" style="background-color: ${art.palette[idx] || '#C5A880'}"></span>
+                                        <span class="truncate">Layer ${idx+1}: ${layer}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <!-- Color Palette -->
+                        <div class="space-y-2">
+                            <h4 class="text-xs uppercase tracking-wider font-bold text-warmdark">Dominant Color Palette</h4>
+                            <div class="flex space-x-2">
+                                ${art.palette.map(color => `<div class="w-8 h-8 rounded-full shadow-inner border border-stone-300" style="background-color: ${color}"></div>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200">
+                        <button onclick="closePaintingDetail(); openInquiryModal('${art.title} (${art.price})')" class="w-full bg-warmdark text-parchment py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-stone-800 transition-all text-center">
+                            Inquire to Acquire — ${art.price}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('painting-modal').classList.remove('hidden');
+            document.getElementById('painting-modal').classList.add('flex');
+        }
+
+        function closePaintingDetail() {
+            document.getElementById('painting-modal').classList.remove('flex');
+            document.getElementById('painting-modal').classList.add('hidden');
+        }
+
+        function toggleLayer(idx) {
+            const box = document.getElementById('layer-box-' + idx);
+            box.classList.toggle('bg-goldaccent');
+            box.classList.toggle('text-white');
+            showToast('Toggled layer inspection view');
+        }
+
+        // Artist Modal
+        function openArtistModal() {
+            document.getElementById('artist-modal').classList.remove('hidden');
+            document.getElementById('artist-modal').classList.add('flex');
+        }
+        function closeArtistModal() {
+            document.getElementById('artist-modal').classList.remove('flex');
+            document.getElementById('artist-modal').classList.add('hidden');
+        }
+
+        // Inquiry / Commission Modal
+        function openInquiryModal(itemTitle) {
+            document.getElementById('inquiry-modal-title').textContent = "Acquire " + itemTitle;
+            document.getElementById('inquiry-modal').classList.remove('hidden');
+            document.getElementById('inquiry-modal').classList.add('flex');
+        }
+        function openCommissionModal() {
+            document.getElementById('inquiry-modal-title').textContent = "Discuss Custom Commission";
+            document.getElementById('inquiry-modal-subtitle').textContent = "Murals & Private Spaces";
+            document.getElementById('inquiry-modal').classList.remove('hidden');
+            document.getElementById('inquiry-modal').classList.add('flex');
+        }
+        function closeInquiryModal() {
+            document.getElementById('inquiry-modal').classList.remove('flex');
+            document.getElementById('inquiry-modal').classList.add('hidden');
+        }
+
+        // Search Modal
+        function openSearchModal() {
+            document.getElementById('search-modal').classList.remove('hidden');
+            document.getElementById('search-modal').classList.add('flex');
+            document.getElementById('search-input').focus();
+        }
+        function closeSearchModal() {
+            document.getElementById('search-modal').classList.remove('flex');
+            document.getElementById('search-modal').classList.add('hidden');
+        }
+        function performSearch(query) {
+            const container = document.getElementById('search-results');
+            if (!query.trim()) {
+                container.innerHTML = `<p class="text-xs text-stone-500 italic py-2">Start typing to search across all gallery works and articles...</p>`;
+                return;
+            }
+            const q = query.toLowerCase();
+            const matches = artworks.filter(art => art.title.toLowerCase().includes(q) || art.collection.toLowerCase().includes(q) || art.description.toLowerCase().includes(q));
+
+            if (matches.length === 0) {
+                container.innerHTML = `<p class="text-xs text-stone-500 py-2">No matching artworks found for "${query}".</p>`;
+                return;
+            }
+
+            container.innerHTML = matches.map(art => `
+                <div onclick="closeSearchModal(); openPaintingDetail(${art.id})" class="p-3 bg-white border border-stone-200 rounded flex items-center justify-between cursor-pointer hover:border-goldaccent transition-all">
+                    <div class="flex items-center space-x-3">
+                        <img src="${art.image}" class="w-12 h-12 object-cover rounded">
+                        <div>
+                            <h4 class="font-serif text-sm font-bold text-warmdark">${art.title}</h4>
+                            <p class="text-[10px] text-stone-500">${art.collection} • ${art.price}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-xs text-stone-400"></i>
+                </div>
+            `).join('');
+        }
+
+        // Forms and Toasts
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            closeInquiryModal();
+            showToast('Inquiry submitted successfully! Rootsman Studio will respond shortly.');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('Message sent successfully! Thank you for contacting Rootsman Studio.');
+            e.target.reset();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3500);
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderGrids();
+        }
+    </script>
+</body>
+</html>
